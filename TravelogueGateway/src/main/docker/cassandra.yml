@@ -1,0 +1,32 @@
+version: '2'
+services:
+    traveloguegateway-cassandra:
+        container_name: traveloguegateway-cassandra
+        image: cassandra:2.2.5
+        # volumes:
+        #     - ~/volumes/jhipster/TravelogueGateway/cassandra/:/var/lib/cassandra/data
+        ports:
+            - 7000:7000
+            - 7001:7001
+            - 7199:7199
+            - 9042:9042
+            - 9160:9160
+    traveloguegateway-cassandra-node:
+        image: cassandra:2.2.5
+        links:
+            - traveloguegateway-cassandra:seed
+        environment:
+            - CASSANDRA_SEEDS=seed
+    traveloguegateway-cassandra-migration:
+        container_name: traveloguegateway-cassandra-migration
+        links:
+            - traveloguegateway-cassandra
+        environment:
+            - CASSANDRA_CONTACT_POINT=traveloguegateway-cassandra
+            - USER=docker-cassandra-migration
+            # - DEBUG_LOG=1 ## uncomment to show debug logs in the migration
+        build:
+            context: .
+            dockerfile: cassandra/Cassandra.Dockerfile
+        volumes:
+            - ../resources/config/cql:/cql:ro

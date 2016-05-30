@@ -1,0 +1,26 @@
+{
+  "generator-jhipster": {
+    "jhipsterVersion": "3.3.0",
+    "baseName": "TraveloguePost",
+    "packageName": "com.travelogue.post",
+    "packageFolder": "com/travelogue/post",
+    "serverPort": "8180",
+    "authenticationType": "jwt",
+    "hibernateCache": "no",
+    "databaseType": "mongodb",
+    "devDatabaseType": "mongodb",
+    "prodDatabaseType": "mongodb",
+    "searchEngine": "no",
+    "buildTool": "maven",
+    "jwtSecretKey": "42fcd0db0f5ad7322f664bafb4b8314881757e5c",
+    "enableTranslation": false,
+    "applicationType": "microservice",
+    "testFrameworks": [
+      "gatling",
+      "cucumber"
+    ],
+    "jhiPrefix": "jhi",
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
