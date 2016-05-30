@@ -1,0 +1,37 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "head",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "content",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "users",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "places",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "resources",
+            "fieldType": "String"
+        }
+    ],
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "post",
+    "pagination": "infinite-scroll",
+    "microserviceName": "TraveloguePost",
+    "searchEngine": "no"
+}

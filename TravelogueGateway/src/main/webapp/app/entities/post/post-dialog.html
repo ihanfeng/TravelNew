@@ -1,0 +1,68 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myPostLabel">Create or edit a Post</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.post.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.post.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_head">Head</label>
+            <input type="text" class="form-control" name="head" id="field_head"
+                    ng-model="vm.post.head"
+                    required />
+            <div ng-show="editForm.head.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.head.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_content">Content</label>
+            <input type="text" class="form-control" name="content" id="field_content"
+                    ng-model="vm.post.content"
+                    required />
+            <div ng-show="editForm.content.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.content.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_users">Users</label>
+            <input type="text" class="form-control" name="users" id="field_users"
+                    ng-model="vm.post.users"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_places">Places</label>
+            <input type="text" class="form-control" name="places" id="field_places"
+                    ng-model="vm.post.places"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_resources">Resources</label>
+            <input type="text" class="form-control" name="resources" id="field_resources"
+                    ng-model="vm.post.resources"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>
